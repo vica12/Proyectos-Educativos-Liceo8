@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Educativos del Liceo 8</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --color-primario: #FF6F61;
+            --color-secundario: #6B5B95;
+            --color-acento: #88B04B;
+            --color-fondo: #F7CAC9;
+            --color-texto: #034F84;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-fondo);
+            z-index: -1;
+        }
+
+        #animacion-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .anep-dges-logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .menu-item {
+            background-color: var(--color-secundario);
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 45%;
+            margin-bottom: 20px;
+            perspective: 1000px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .liceo8-logo {
+            max-width: 100px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item.active {
+            background-color: var(--color-acento);
+        }
+
+        .menu-header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--color-texto);
+        }
+
+        .menu-content-inner {
+            padding: 15px;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .enlace {
+            color: var(--color-primario);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .calendar-container {
+            width: 100%;
+            height: 600px;
+            border: none;
+            margin-top: 40px; /* Ajusta este valor según sea necesario */
+        }
+
+        @media (max-width: 768px) {
+            .menu-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="animacion-container">
+        <div class="header-logos">
+            <img src="https://www.anep.edu.uy/sites/default/files/images/logos/logos-2020/logos-anep/Logo%20ANEP%202020%20COLOR.png" alt="Logo ANEP-DGES" class="anep-dges-logo">
+        </div>
+        <h1>¡Descubre los Proyectos Educativos del Liceo 8!</h1>
+        <div class="content-wrapper">
+            <div class="menu-container">
+                <div class="menu-item" id="infoAP">
+                    <div class="menu-header">
+                        <h3>Proyectos de Acompañamiento Pedagógico</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-content-inner">
+                            <p>Apoyo personalizado para tu aprendizaje. Estos proyectos están diseñados para atender la diversidad del estudiantado y promover su permanencia y éxito en el sistema educativo.</p>
+                            <p>Para más información, visita:</p>
+                            <ul>
+                                <li><a href="https://www.dges.edu.uy/comunicacion/noticias/acompanamiento-pedagogico" class="enlace" target="_blank">Acompañamiento Pedagógico - DGES</a></li>
+                                <li><a href="https://liceoencasa.ces.edu.uy/images/pdf/Acompa%C3%B1amiento_pedag%C3%B3gico_.pdf" class="enlace" target="_blank">Documento PDF sobre Acompañamiento Pedagógico</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" id="infoAvanza">
+                    <div class="menu-header">
+                        <h3>Plan Avanza</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="menu-content">
+                        <div class="menu-content-inner">
+                            <p>Estrategias para tu éxito educativo. Este plan tiene como objetivo mejorar la inserción y retención de los estudiantes en el sistema educativo público mediante diversas estrategias y acciones colaborativas.</p>
+                            <p>Para más información, visita:</p>
+                            <ul>
+                                <li><a href="https://www.gub.uy/presidencia/comunicacion/noticias/plan-avanzar-proyecta-90-avance-intervencion-asentamientos-durante-2024" class="enlace" target="_blank">Plan Avanza - GUB.UY</a></li>
+                                <li><a href="https://www.anep.edu.uy/sites/default/files/images/2023/noticias/agosto/230815/Plan%20AVANZA%202023-1.pdf" class="enlace" target="_blank">Documento PDF sobre Plan Avanza</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXKdysIzehStkmoiqX8ECzJvFw-eFAQAoubA&s" alt="Logo Liceo 8" class="liceo8-logo">
+            <iframe src="https://calendar.google.com/calendar/u/0/embed?src=victor.corrale@docente.ceibal.edu.uy&ctz=America/Montevideo" class="calendar-container"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Animaciones con Anime.js
+        anime({
+            targets: 'h1',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            easing: 'easeOutExpo',
+            duration: 1500,
+            delay: 500
+        });
+
+        anime({
+            targets: '.menu-item',
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutExpo',
+            duration: 1000,
+            delay: anime.stagger(200, {start: 1000})
+        });
+
+        // Funcionalidad de menú desplegable y cambio de color
+        document.querySelectorAll('.menu-item').forEach(menuItem => {
+            menuItem.addEventListener('click', () => {
+                const content = menuItem.querySelector('.menu-content');
+                
+                if (menuItem.classList.contains('active')) {
+                    menuItem.classList.remove('active');
+                    content.style.maxHeight = null;
+                } else {
+                    // Cerrar otros menús abiertos
+                    document.querySelectorAll('.menu-item.active').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.menu-content').style.maxHeight = null;
+                    });
+
+                    menuItem.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
